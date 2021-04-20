@@ -5,7 +5,7 @@ function Products() {
   const baseUrl =
     "https://cors.bridged.cc/https://codechallenge.pikdrive.com/api/"; // pesky CORS error.//"https://jsonplaceholder.typicode.com/users";
   const [products, setProducts] = useState([]);
-  const [displayItems, setDisplayItems] = useState("orders");
+  const [displayItems, setDisplayItems] = useState("products");
 
   useEffect(() => {
     setProducts([]); // Loading effect.
@@ -22,9 +22,9 @@ function Products() {
   }, [displayItems]);
 
   const flipDisplayItems = () => {
-    displayItems === "orders"
+    displayItems === "products"
       ? setDisplayItems("top-sales")
-      : setDisplayItems("orders");
+      : setDisplayItems("products");
   };
 
   const populated = products.length; // Display loading
@@ -32,17 +32,33 @@ function Products() {
   return (
     <div>
       <h1>{displayItems}</h1>
-      {populated ? (
-        products.map((item) => {
-          return <p key={item.id}>{item.orderNumber}</p>;
-        })
-      ) : (
-        <p>Fetching {displayItems}...</p>
-      )}
-      {displayItems === "orders" ? (
+      <ul>
+        {populated ? (
+          displayItems === "products" ? (
+            products.map((product) => {
+              return (
+                <li key={product.id}>
+                  {product.name} | {product.description} | {product.quantity}
+                </li>
+              );
+            })
+          ) : (
+            products.map((topSale) => {
+              return (
+                <li key={topSale.id}>
+                  {topSale.orderNumber} | {topSale.count}
+                </li>
+              );
+            })
+          )
+        ) : (
+          <p>Fetching {displayItems}...</p>
+        )}
+      </ul>
+      {displayItems === "products" ? (
         <button onClick={flipDisplayItems}>Fetch Top-Sales</button>
       ) : (
-        <button onClick={flipDisplayItems}>Fetch Orders</button>
+        <button onClick={flipDisplayItems}>Fetch Products</button>
       )}
       <p>New Product.</p>
     </div>
