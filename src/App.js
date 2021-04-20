@@ -1,28 +1,37 @@
 import "./App.css";
-import Axios from "axios";
-import { useEffect, useState } from "react";
+import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+
+import Orders from "./Components/Orders";
+import Products from "./Components/Products";
+import Suppliers from "./Components/Suppliers";
 
 function App() {
-  const baseUrl = "https://jsonplaceholder.typicode.com/users"; //"https://cors.bridged.cc/https://codechallenge.pikdrive.com/api/orders/"; // pesky CORS error.
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    Axios.get(baseUrl).then((res) => {
-      //const data = res.data.data; //Using 2 cause they return nested objects
-      const data = res.data;
-      console.log(data);
-      setProducts(res.data);
-    });
-  }, []);
-
   return (
-    <div className="App">
-      {products.map((item) => {
-        return <p key={item.id}>{item.name}</p>;
-      })}
-      <button>Fetch Products</button>
-      <h1>React working!!!</h1>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <nav>
+          <h1>React working!!!</h1>
+          <ul>
+            <li>
+              <Link to="/orders">Orders</Link>
+            </li>
+            <li>
+              <Link to="/products">Products</Link>
+            </li>
+            <li>
+              <Link to="/suppliers">Suppliers</Link>
+            </li>
+          </ul>
+        </nav>
+        <div className="container">
+          <Switch>
+            <Route path="/orders" component={Orders} />
+            <Route path="/products" component={Products} />
+            <Route path="/suppliers" component={Suppliers} />
+          </Switch>
+        </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
