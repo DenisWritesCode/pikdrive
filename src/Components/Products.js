@@ -2,27 +2,49 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 
 function Products() {
-  const baseUrl = "https://jsonplaceholder.typicode.com/users"; //"https://cors.bridged.cc/https://codechallenge.pikdrive.com/api/orders/"; // pesky CORS error.
+  const baseUrl =
+    "https://cors.bridged.cc/https://codechallenge.pikdrive.com/api/"; // pesky CORS error.//"https://jsonplaceholder.typicode.com/users";
   const [products, setProducts] = useState([]);
+  const [displayItems, setDisplayItems] = useState("orders");
 
   useEffect(() => {
-    Axios.get(baseUrl).then((res) => {
-      //const data = res.data.data; //Using 2 cause they return nested objects
-      const data = res.data;
-      console.log(data);
-      setProducts(res.data);
-    });
-  }, []);
+    setProducts([]); // Loading effect.
+
+    Axios.get(baseUrl + displayItems)
+      .then((res) => {
+        const data = res.data.data; //Using 2 cause they return nested objects
+        console.log(res);
+        setProducts(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [displayItems]);
+
+  const flipDisplayItems = () => {
+    displayItems === "orders"
+      ? setDisplayItems("top-sales")
+      : setDisplayItems("orders");
+  };
+
+  const populated = products.length; // Display loading
 
   return (
     <div>
-      {products.map((item) => {
-        return <p key={item.id}>{item.name}</p>;
-      })}
-      <button>Fetch Products</button>
+      <h1>{displayItems}</h1>
+      {populated ? (
+        products.map((item) => {
+          return <p key={item.id}>{item.orderNumber}</p>;
+        })
+      ) : (
+        <p>Fetching {displayItems}...</p>
+      )}
+      {displayItems === "orders" ? (
+        <button onClick={flipDisplayItems}>Fetch Top-Sales</button>
+      ) : (
+        <button onClick={flipDisplayItems}>Fetch Orders</button>
+      )}
       <p>New Product.</p>
-      <p>All Products</p>
-      <p>Top sales</p>
     </div>
   );
 }
