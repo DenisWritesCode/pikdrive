@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Link, Switch, Redirect } from "react-router-dom";
 
 import Orders from "./Components/Orders";
 import Products from "./Components/Products";
@@ -25,6 +25,7 @@ function App() {
         </nav>
         <div className="container">
           <Switch>
+            <Route exact path="/" render={() => <Redirect to="/products" />} />
             <Route path="/orders" component={Orders} />
             <Route path="/products" component={Products} />
             <Route path="/suppliers" component={Suppliers} />
