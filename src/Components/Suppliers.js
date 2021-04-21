@@ -20,19 +20,28 @@ function Suppliers() {
       });
   }, []);
 
+  const displayDate = (date) => {
+    const createdDate = new Date(date);
+    return createdDate.toDateString();
+  };
+
   const populated = suppliers.length; // Display loading
 
   return (
-    <div>
-      <ul>
-        {populated ? (
-          suppliers.map((supplier) => {
-            return <li key={supplier.id}>{supplier.name}</li>;
-          })
-        ) : (
-          <p>Loading Suppliers ...</p>
-        )}
-      </ul>
+    <div className="suppliers">
+      {populated ? (
+        suppliers.map((supplier) => {
+          return (
+            <div key={supplier.id}>
+              <p> Name: {supplier.name} </p>
+              <p> Created: {displayDate(supplier.created_at)}</p>
+            </div>
+          );
+        })
+      ) : (
+        <p>Fetching Suppliers ...</p>
+      )}
+      <hr />
       <p>New Supplier</p>
     </div>
   );

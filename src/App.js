@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <nav>
-          <h1>React working!!!</h1>
+          <h1>PikDrive</h1>
           <ul>
             <li>
               <Link to="/orders">Orders</Link>
@@ -31,6 +31,12 @@ function App() {
             <Route path="/suppliers" component={Suppliers} />
           </Switch>
         </div>
+        <footer>
+          <p className="copyright">&copy; 2021</p>
+          <p className="link">
+            Designed By <a href="denismutinda.com">DenisWritesCode</a>
+          </p>
+        </footer>
       </div>
     </BrowserRouter>
   );
