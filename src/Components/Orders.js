@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
+import "./styles/orders.css";
 
 function Orders() {
   const baseUrl =
@@ -20,22 +21,28 @@ function Orders() {
       });
   }, []);
 
+  const displayDate = (date) => {
+    const createdDate = new Date(date);
+    return createdDate.toDateString();
+  };
+
   const populated = orders.length; // Display loading
   return (
-    <div>
-      <ul>
-        {populated ? (
-          orders.map((order) => {
-            return (
-              <li key={order.id}>
-                Order Number: {order.orderNumber} | No. of items: {order.count}
-              </li>
-            );
-          })
-        ) : (
-          <p>Loading Orders ...</p>
-        )}
-      </ul>
+    <div className="orders">
+      {populated ? (
+        orders.map((order) => {
+          return (
+            <div key={order.id} className="order">
+              <p>Order: {order.orderNumber}</p>
+              <p>No. of items: {order.count}</p>
+              <p>Created on: {displayDate(order.created_at)}</p>
+            </div>
+          );
+        })
+      ) : (
+        <p>Loading Orders ...</p>
+      )}
+      <hr />
       <p>Create New Order</p>
       <p>Delete Order</p>
     </div>
