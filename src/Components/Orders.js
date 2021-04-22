@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import "./styles/orders.css";
+import MakeOrder from "./MakeOrder";
 
 function Orders() {
   const baseUrl =
@@ -43,7 +44,7 @@ function Orders() {
         <p>Loading Orders ...</p>
       )}
       <hr />
-      <p>Create New Order</p>
+      <MakeOrder />
       <p>Delete Order</p>
     </div>
   );
