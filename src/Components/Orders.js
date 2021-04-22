@@ -9,9 +9,9 @@ function Orders() {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    setOrders([]); // Loading effect.
+    // setOrders([]); // Loading effect.
 
-    Axios.get(baseUrl + "orders/")
+    Axios.get(baseUrl + "orders")
       .then((res) => {
         const data = res.data.data; //Using 2 cause they return nested objects
         console.log(res);
@@ -27,6 +27,18 @@ function Orders() {
     return createdDate.toDateString();
   };
 
+  const handleOrderDelete = (itemID) => {
+    Axios.post(baseUrl + "delete-order", {
+      id: itemID,
+    })
+      .then((res) => {
+        setOrders([]); // Trigger a page refresh
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const populated = orders.length; // Display loading
   return (
     <div className="orders">
@@ -37,6 +49,13 @@ function Orders() {
               <p>Order: {order.orderNumber}</p>
               <p>No. of items: {order.count}</p>
               <p>Created on: {displayDate(order.created_at)}</p>
+              <button
+                onClick={() => {
+                  handleOrderDelete(order.id);
+                }}
+              >
+                X
+              </button>
             </div>
           );
         })
@@ -45,7 +64,6 @@ function Orders() {
       )}
       <hr />
       <MakeOrder />
-      <p>Delete Order</p>
     </div>
   );
 }

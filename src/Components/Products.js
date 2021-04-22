@@ -50,6 +50,32 @@ function Products() {
       .catch((error) => {
         console.log(error);
       });
+
+    // Reset Input Fields
+    productName.value = "";
+    productDescription.value = "";
+    productQuantity.value = "";
+  };
+
+  const cart = [];
+  const handleOrder = (itemID) => {
+    // TODO: Check whether item is already there.
+    cart.push({
+      id: itemID,
+      quantity: 1,
+    });
+  };
+
+  const handleCheckout = () => {
+    Axios.post(baseUrl + "new-order", {
+      items: cart,
+    })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const populated = products.length; // Display loading
@@ -66,6 +92,13 @@ function Products() {
                   <p> Description: {product.description} </p>
                   <p> Quantity: {product.quantity} </p>
                   <p> Created: {displayDate(product.created_at)} </p>
+                  <button
+                    onClick={() => {
+                      handleOrder(product.id);
+                    }}
+                  >
+                    Order {product.name}
+                  </button>
                 </div>
               );
             })
@@ -89,6 +122,7 @@ function Products() {
           <button onClick={flipDisplayItems}>Fetch Products</button>
         )}
         <hr />
+        <button onClick={handleCheckout}>Checkout</button>
       </div>
       <div className="newProduct">
         <form action="#" onSubmit={handleNewProduct}>
@@ -103,7 +137,7 @@ function Products() {
           />
 
           <label htmlFor="productQuantity">Quantity: </label>
-          <input type="text" name="productQuantity" id="productQuantity" />
+          <input type="number" name="productQuantity" id="productQuantity" />
 
           <button type="submit">Create New Product</button>
         </form>
