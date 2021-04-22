@@ -20,6 +20,25 @@ function Suppliers() {
       });
   }, []);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const supplierName = document.querySelector("#supplier");
+
+    // Make a Post Request
+    Axios.post(baseUrl + "new-supplier", {
+      name: supplierName.value,
+    })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    supplierName.value = "";
+  };
+
   const displayDate = (date) => {
     const createdDate = new Date(date);
     return createdDate.toDateString();
@@ -29,20 +48,28 @@ function Suppliers() {
 
   return (
     <div className="suppliers">
-      {populated ? (
-        suppliers.map((supplier) => {
-          return (
-            <div key={supplier.id}>
-              <p> Name: {supplier.name} </p>
-              <p> Created: {displayDate(supplier.created_at)}</p>
-            </div>
-          );
-        })
-      ) : (
-        <p>Fetching Suppliers ...</p>
-      )}
-      <hr />
-      <p>New Supplier</p>
+      <div className="fetchedSuppliers">
+        {populated ? (
+          suppliers.map((supplier) => {
+            return (
+              <div key={supplier.id}>
+                <p> Name: {supplier.name} </p>
+                <p> Created: {displayDate(supplier.created_at)}</p>
+              </div>
+            );
+          })
+        ) : (
+          <p>Fetching Suppliers ...</p>
+        )}
+        <hr />
+      </div>
+      <div className="newSupplier">
+        <form action="#" onSubmit={handleSubmit}>
+          <label htmlFor="supplier">Supplier Name: </label>
+          <input type="text" name="supplier" id="supplier" required />
+          <button type="submit">Create New Supplier</button>
+        </form>
+      </div>
     </div>
   );
 }
