@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/DenisWritesCode/pikdrive/static/css/main.095ae8bb.chunk.css",
-    "main.js": "/DenisWritesCode/pikdrive/static/js/main.e6b195b0.chunk.js",
-    "main.js.map": "/DenisWritesCode/pikdrive/static/js/main.e6b195b0.chunk.js.map",
+    "main.js": "/DenisWritesCode/pikdrive/static/js/main.de77fae5.chunk.js",
+    "main.js.map": "/DenisWritesCode/pikdrive/static/js/main.de77fae5.chunk.js.map",
     "runtime-main.js": "/DenisWritesCode/pikdrive/static/js/runtime-main.81e22c68.js",
     "runtime-main.js.map": "/DenisWritesCode/pikdrive/static/js/runtime-main.81e22c68.js.map",
-    "static/js/2.05c39427.chunk.js": "/DenisWritesCode/pikdrive/static/js/2.05c39427.chunk.js",
-    "static/js/2.05c39427.chunk.js.map": "/DenisWritesCode/pikdrive/static/js/2.05c39427.chunk.js.map",
+    "static/js/2.01ef8754.chunk.js": "/DenisWritesCode/pikdrive/static/js/2.01ef8754.chunk.js",
+    "static/js/2.01ef8754.chunk.js.map": "/DenisWritesCode/pikdrive/static/js/2.01ef8754.chunk.js.map",
     "index.html": "/DenisWritesCode/pikdrive/index.html",
     "static/css/main.095ae8bb.chunk.css.map": "/DenisWritesCode/pikdrive/static/css/main.095ae8bb.chunk.css.map",
-    "static/js/2.05c39427.chunk.js.LICENSE.txt": "/DenisWritesCode/pikdrive/static/js/2.05c39427.chunk.js.LICENSE.txt"
+    "static/js/2.01ef8754.chunk.js.LICENSE.txt": "/DenisWritesCode/pikdrive/static/js/2.01ef8754.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.81e22c68.js",
-    "static/js/2.05c39427.chunk.js",
+    "static/js/2.01ef8754.chunk.js",
     "static/css/main.095ae8bb.chunk.css",
-    "static/js/main.e6b195b0.chunk.js"
+    "static/js/main.de77fae5.chunk.js"
   ]
 }
