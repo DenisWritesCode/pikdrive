@@ -22,25 +22,6 @@ function Suppliers() {
       });
   }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const supplierName = document.querySelector("#supplier");
-
-    // Make a Post Request
-    Axios.post(baseUrl + "new-supplier", {
-      name: supplierName.value,
-    })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-
-    supplierName.value = "";
-  };
-
   const displayDate = (date) => {
     const createdDate = new Date(date);
     return createdDate.toDateString();

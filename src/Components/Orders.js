@@ -58,14 +58,15 @@ function Orders() {
                 </p>
               </section>
               <section>
-                <button className="delete">
+                <button
+                  className="delete"
+                  onClick={() => {
+                    handleOrderDelete(order.id);
+                    alert(`Confirm Deletion of ${order.orderNumber}`);
+                  }}
+                >
                   Delete
-                  <i
-                    onClick={() => {
-                      handleOrderDelete(order.id);
-                    }}
-                    className="fas fa-trash"
-                  ></i>
+                  <i className="fas fa-trash"></i>
                 </button>
               </section>
             </div>

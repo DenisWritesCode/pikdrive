@@ -14,6 +14,8 @@ function MakeProduct({ setProducts, fetchItems }) {
     const productDescription = document.querySelector("#productDescription");
     const productQuantity = document.querySelector("#productQuantity");
 
+    alert(`Confirm addition of product: ${productName.value}`);
+
     Axios.post(baseUrl + "new-product", {
       name: productName.value,
       description: productDescription.value,

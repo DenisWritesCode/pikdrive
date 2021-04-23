@@ -17,6 +17,7 @@ function Cart({ cart, setCart }) {
   const totalItems = checkoutCart.reduce(sum, 0);
 
   const handleCheckout = () => {
+    alert(`Confirm ordering of ${totalItems} item(s) from your account`);
     Axios.post(baseUrl + "new-order", {
       items: cart, // Change this maybe
     })

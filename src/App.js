@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Route, Link, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 
 import Orders from "./Components/Orders";
 import Products from "./Components/Products";
@@ -23,7 +23,7 @@ function App() {
           <h1>PikDrive</h1>
           <ul>
             <li>
-              <Link to="/orders">Orders</Link>
+              <Link to="/">Orders</Link>
             </li>
             <li>
               <Link to="/products">Products</Link>
@@ -40,8 +40,7 @@ function App() {
         </nav>
         <div className="container">
           <Switch>
-            <Route exact path="/" render={() => <Redirect to="/products" />} />
-            <Route path="/orders">
+            <Route exact path="/">
               <Orders displayDate={displayDate} />
             </Route>
             <Route path="/products">
