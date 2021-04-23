@@ -1,10 +1,10 @@
-.orders {
+.suppliers {
   width: 85%;
   margin: 0 auto;
   padding-top: 1em;
 }
 
-.order {
+.fetchedSupplier {
   border-top: 5px solid rgba(229, 155, 36, 0.8);
   box-shadow: 0.5em 0.5em 1em rgba(0, 0, 0, 0.4),
     0.5em 0.5em 1em rgba(0, 0, 0, 0.4);
@@ -16,37 +16,32 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
 }
 
-.order p {
+.fetchedSupplier p {
   font-weight: 400;
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
 
-.order span {
+.fetchedSupplier span {
   font-weight: 600;
   font-size: 1.1em;
 }
 
-.delete {
-  color: #940808;
-  margin-top: 0.3em;
-  padding: 5px 10px;
+.empty {
   font-size: 1.2em;
-  letter-spacing: 2px;
-  cursor: pointer;
 }
 
 /* Larger than mobile */
 @media only screen and (min-width: 768px) {
-  .orders {
+  .suppliers {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
   }
 
-  .order {
+  .fetchedSupplier {
     width: 40%;
   }
 }

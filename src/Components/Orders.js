@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import "./styles/orders.css";
-import MakeOrder from "./MakeOrder";
 
 function Orders() {
   const baseUrl =
     "https://cors.bridged.cc/https://codechallenge.pikdrive.com/api/"; // pesky CORS error.//"https://jsonplaceholder.typicode.com/users";
   const [orders, setOrders] = useState([]);
 
-  useEffect(() => {
-    // setOrders([]); // Loading effect.
-
+  const fetchOrders = () => {
     Axios.get(baseUrl + "orders")
       .then((res) => {
         const data = res.data.data; //Using 2 cause they return nested objects
-        console.log(res);
         setOrders(data);
       })
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  useEffect(() => {
+    fetchOrders();
   }, []);
 
   const displayDate = (date) => {
@@ -32,38 +32,48 @@ function Orders() {
       id: itemID,
     })
       .then((res) => {
-        setOrders([]); // Trigger a page refresh
+        setOrders([]);
+        fetchOrders(); // Trigger a page refresh
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
-  const populated = orders.length; // Display loading
   return (
     <div className="orders">
-      {populated ? (
+      {orders.length > 0 ? (
         orders.map((order) => {
           return (
             <div key={order.id} className="order">
-              <p>Order: {order.orderNumber}</p>
-              <p>No. of items: {order.count}</p>
-              <p>Created on: {displayDate(order.created_at)}</p>
-              <button
-                onClick={() => {
-                  handleOrderDelete(order.id);
-                }}
-              >
-                X
-              </button>
+              <section class="text">
+                <p>
+                  <span>Order:</span> {order.orderNumber}
+                </p>
+                <p>
+                  <span>No. of items:</span> {order.count}
+                </p>
+                <p>
+                  <span>Created on:</span> {displayDate(order.created_at)}
+                </p>
+              </section>
+              <section>
+                <button className="delete">
+                  Delete
+                  <i
+                    onClick={() => {
+                      handleOrderDelete(order.id);
+                    }}
+                    className="fas fa-trash"
+                  ></i>
+                </button>
+              </section>
             </div>
           );
         })
       ) : (
         <p>Loading Orders ...</p>
       )}
-      <hr />
-      <MakeOrder />
     </div>
   );
 }

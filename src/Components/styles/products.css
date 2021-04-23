@@ -1,0 +1,85 @@
+h1.title {
+  font-size: 3em;
+  text-align: center;
+  margin-bottom: 0.3em;
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+}
+
+.product {
+  border-top: 5px solid rgba(229, 155, 36, 0.8);
+  box-shadow: 0.5em 0.5em 1em rgba(0, 0, 0, 0.4),
+    0.5em 0.5em 1em rgba(0, 0, 0, 0.4);
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 1.5em;
+  padding: 10px 10px;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.orderButton {
+  max-width: 80%;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 1em;
+  background-color: #e59b24;
+  font-size: 1.2em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 10px;
+  border: 5px solid rgba(229, 155, 36, 0.8);
+  box-shadow: 0.2em 0.2em 1em rgba(0, 0, 0, 0.4),
+    0.2em 0.2em 1em rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.text p {
+  font-weight: 400;
+  font-size: 1.2em;
+}
+
+.text span {
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.empty {
+  font-size: 1.2em;
+}
+
+.plug {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.plug a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #e59b24;
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+
+  padding: 5px;
+}
+
+/* Larger than mobile */
+@media only screen and (min-width: 768px) {
+  .products {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .product {
+    width: 40%;
+  }
+}

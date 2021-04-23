@@ -5,7 +5,7 @@
   --blue: #2c98ef;
 }
 body {
-  background-color: #c4c4c4;
+  background-color: #ededed;
 }
 
 nav {
@@ -13,6 +13,12 @@ nav {
   justify-content: space-between;
   padding: 10px 20px; /* y-axis x-axis*/
   align-items: center;
+  background-color: var(--blue);
+  margin-bottom: 10px;
+  z-index: 1;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
 }
 
 nav ul {
@@ -21,18 +27,19 @@ nav ul {
 
 nav a {
   text-decoration: none;
+  color: #000;
   margin: 5px;
 }
 
 .container {
-  min-height: 82vh;
+  min-height: 85vh;
   width: 80%;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.5);
   margin: 0 auto;
-  padding: 5px;
+  padding: 20px 5px;
 
-  position: relative;
-  top: 00%;
+  border: 1px solid #ededed;
+  border-radius: 1em;
 }
 
 ul {
@@ -43,7 +50,7 @@ footer {
   background-color: var(--blue);
   position: relative;
   margin-top: 1em;
-  /* bottom: 0; */
+  bottom: 0;
   width: 100%;
   padding: 10px;
 
