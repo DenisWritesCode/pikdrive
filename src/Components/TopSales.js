@@ -34,6 +34,7 @@ function TopSales({ displayDate }) {
                 <p>Order: {topSale.orderNumber} </p>
                 <p>Quantity: {topSale.count} </p>
                 <p>Created: {displayDate(topSale.created_at)}</p>
+                <hr />
               </div>
             );
           })
