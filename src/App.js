@@ -6,9 +6,10 @@ import Products from "./Components/Products";
 import Suppliers from "./Components/Suppliers";
 import Cart from "./Components/Cart";
 import TopSales from "./Components/TopSales";
+import { useState } from "react";
 
 function App() {
-  const cart = [];
+  const [cart, setCart] = useState([]);
 
   const displayDate = (date) => {
     const createdDate = new Date(date);
@@ -31,7 +32,9 @@ function App() {
               <Link to="/suppliers">Suppliers</Link>
             </li>
             <li>
-              <Link to="/cart">Cart</Link>
+              <Link to="/cart">
+                <i className="fas fa-shopping-cart"></i>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -51,7 +54,7 @@ function App() {
               <TopSales displayDate={displayDate} />
             </Route>
             <Route path="/cart">
-              <Cart displayDate={displayDate} cart={cart} />
+              <Cart cart={cart} setCart={setCart} />
             </Route>
           </Switch>
         </div>

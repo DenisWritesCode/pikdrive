@@ -1,12 +1,52 @@
 .orders {
-  width: 80%;
+  width: 85%;
   margin: 0 auto;
-  padding-top: 0.5em;
+  padding-top: 1em;
 }
 
 .order {
-  color: #00f;
-  border: 2px solid #000;
-  margin-bottom: 0.5em;
-  padding: 10px 5px;
+  border-top: 5px solid rgba(229, 155, 36, 0.8);
+  box-shadow: 0.5em 0.5em 1em rgba(0, 0, 0, 0.4),
+    0.5em 0.5em 1em rgba(0, 0, 0, 0.4);
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 1.5em;
+  padding: 10px 10px;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.order p {
+  font-weight: 400;
+  font-size: 1.2em;
+}
+
+.order span {
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.delete {
+  color: #940808;
+  margin-top: 0.3em;
+  padding: 5px 10px;
+  font-size: 1.2em;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+/* Larger than mobile */
+@media only screen and (min-width: 768px) {
+  .orders {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .order {
+    width: 40%;
+  }
 }

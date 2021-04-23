@@ -46,16 +46,28 @@ function Orders() {
         orders.map((order) => {
           return (
             <div key={order.id} className="order">
-              <p>Order: {order.orderNumber}</p>
-              <p>No. of items: {order.count}</p>
-              <p>Created on: {displayDate(order.created_at)}</p>
-
-              <i
-                onClick={() => {
-                  handleOrderDelete(order.id);
-                }}
-                className="fas fa-trash"
-              ></i>
+              <section class="text">
+                <p>
+                  <span>Order:</span> {order.orderNumber}
+                </p>
+                <p>
+                  <span>No. of items:</span> {order.count}
+                </p>
+                <p>
+                  <span>Created on:</span> {displayDate(order.created_at)}
+                </p>
+              </section>
+              <section>
+                <button className="delete">
+                  Delete
+                  <i
+                    onClick={() => {
+                      handleOrderDelete(order.id);
+                    }}
+                    className="fas fa-trash"
+                  ></i>
+                </button>
+              </section>
             </div>
           );
         })

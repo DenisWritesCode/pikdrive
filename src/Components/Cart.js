@@ -2,7 +2,7 @@ import Axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function Cart({ cart }) {
+function Cart({ cart, setCart }) {
   const baseUrl =
     "https://cors.bridged.cc/https://codechallenge.pikdrive.com/api/";
 
@@ -20,6 +20,7 @@ function Cart({ cart }) {
     })
       .then((res) => {
         console.log(res);
+        setCart([]);
         setCheckOutCart([]);
       })
       .catch((error) => {
