@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 
-function Products() {
+function Products({ cart, displayDate }) {
   const baseUrl =
     "https://cors.bridged.cc/https://codechallenge.pikdrive.com/api/"; // pesky CORS error.//"https://jsonplaceholder.typicode.com/users";
   const [products, setProducts] = useState([]);
@@ -25,11 +25,6 @@ function Products() {
     displayItems === "products"
       ? setDisplayItems("top-sales")
       : setDisplayItems("products");
-  };
-
-  const displayDate = (date) => {
-    const createdDate = new Date(date);
-    return createdDate.toDateString();
   };
 
   const handleNewProduct = (e) => {
@@ -57,13 +52,25 @@ function Products() {
     productQuantity.value = "";
   };
 
-  const cart = [];
-  const handleOrder = (itemID) => {
+  const handleOrder = (itemID, itemName) => {
     // TODO: Check whether item is already there.
-    cart.push({
-      id: itemID,
-      quantity: 1,
+    let itemPresent = false;
+    cart.forEach((item) => {
+      if (item.id === itemID) {
+        item.quantity++; // Increment quantity
+        itemPresent = true;
+      }
     });
+
+    if (!itemPresent) {
+      cart.push({
+        id: itemID,
+        name: itemName,
+        quantity: 1,
+      });
+    }
+
+    console.table(cart);
   };
 
   const handleCheckout = () => {
@@ -94,7 +101,7 @@ function Products() {
                   <p> Created: {displayDate(product.created_at)} </p>
                   <button
                     onClick={() => {
-                      handleOrder(product.id);
+                      handleOrder(product.id, product.name);
                     }}
                   >
                     Order {product.name}

@@ -4,8 +4,16 @@ import { BrowserRouter, Route, Link, Switch, Redirect } from "react-router-dom";
 import Orders from "./Components/Orders";
 import Products from "./Components/Products";
 import Suppliers from "./Components/Suppliers";
+import Cart from "./Components/Cart";
 
 function App() {
+  const cart = [];
+
+  const displayDate = (date) => {
+    const createdDate = new Date(date);
+    return createdDate.toDateString();
+  };
+
   return (
     <BrowserRouter>
       <div className="App">
@@ -21,14 +29,26 @@ function App() {
             <li>
               <Link to="/suppliers">Suppliers</Link>
             </li>
+            <li>
+              <Link to="/cart">Cart</Link>
+            </li>
           </ul>
         </nav>
         <div className="container">
           <Switch>
             <Route exact path="/" render={() => <Redirect to="/products" />} />
-            <Route path="/orders" component={Orders} />
-            <Route path="/products" component={Products} />
-            <Route path="/suppliers" component={Suppliers} />
+            <Route path="/orders">
+              <Orders displayDate={displayDate} />
+            </Route>
+            <Route path="/products">
+              <Products displayDate={displayDate} cart={cart} />
+            </Route>
+            <Route path="/suppliers">
+              <Suppliers displayDate={displayDate} />
+            </Route>
+            <Route path="/cart">
+              <Cart displayDate={displayDate} cart={cart} />
+            </Route>
           </Switch>
         </div>
         <footer>
