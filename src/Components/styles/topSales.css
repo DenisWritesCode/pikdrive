@@ -1,0 +1,59 @@
+.top-sales {
+  width: 85%;
+  margin: 0 auto;
+  padding-top: 1em;
+}
+
+.sale {
+  border-top: 5px solid rgba(229, 155, 36, 0.8);
+  box-shadow: 0.5em 0.5em 1em rgba(0, 0, 0, 0.4),
+    0.5em 0.5em 1em rgba(0, 0, 0, 0.4);
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 1.5em;
+  padding: 10px 10px;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.sale p {
+  font-weight: 400;
+  font-size: 1.2em;
+}
+
+.sale span {
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+.linkBack a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #e59b24;
+  background-color: rgba(0, 0, 0, 0.1);
+
+  margin-top: 5px;
+  padding: 5px;
+}
+
+/* Larger than mobile */
+@media only screen and (min-width: 768px) {
+  .top-sales {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .sale {
+    width: 40%;
+  }
+}

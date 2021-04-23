@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 
+import "./styles/topSales.css";
+
 function TopSales({ displayDate }) {
   const baseUrl =
     "https://cors.bridged.cc/https://codechallenge.pikdrive.com/api/";
@@ -24,29 +26,40 @@ function TopSales({ displayDate }) {
   }, []);
 
   return (
-    <div className="top-sales">
-      <div className="displayProducts">
-        <h1>Top-Sales</h1>
+    <>
+      <h1>Top-Sales</h1>
+      <div className="top-sales">
         {topSales.length > 0 ? (
           topSales.map((topSale) => {
             return (
               <div key={topSale.id} className="sale">
-                <p>Order: {topSale.orderNumber} </p>
-                <p>Quantity: {topSale.count} </p>
-                <p>Created: {displayDate(topSale.created_at)}</p>
+                <p>
+                  <span>Order: </span>
+                  {topSale.orderNumber}{" "}
+                </p>
+                <p>
+                  <span>Quantity: </span>
+                  {topSale.count}{" "}
+                </p>
+                <p>
+                  <span>Created: </span>
+                  {displayDate(topSale.created_at)}
+                </p>
                 <hr />
               </div>
             );
           })
         ) : (
-          <p>Fetching Top Sales...</p>
+          <p className="empty">Fetching Top Sales...</p>
         )}
-        <hr />
       </div>
-      <p>
-        Check out our <Link to="/products">Products</Link>.
-      </p>
-    </div>
+      <>
+        <hr />
+        <p className="linkBack">
+          Check out our <Link to="/products">Products</Link>.
+        </p>
+      </>
+    </>
   );
 }
 

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 
+import "./styles/suppliers.css";
+
 function Suppliers() {
   const baseUrl =
     "https://cors.bridged.cc/https://codechallenge.pikdrive.com/api/"; // pesky CORS error.//"https://jsonplaceholder.typicode.com/users";
@@ -48,21 +50,25 @@ function Suppliers() {
 
   return (
     <div className="suppliers">
-      <div className="fetchedSuppliers">
-        {populated ? (
-          suppliers.map((supplier) => {
-            return (
-              <div key={supplier.id}>
-                <p> Name: {supplier.name} </p>
-                <p> Created: {displayDate(supplier.created_at)}</p>
-                <hr />
-              </div>
-            );
-          })
-        ) : (
-          <p>Fetching Suppliers ...</p>
-        )}
-      </div>
+      {populated ? (
+        suppliers.map((supplier) => {
+          return (
+            <div className="fetchedSupplier" key={supplier.id}>
+              <p>
+                <span>Name: </span>
+                {supplier.name}
+              </p>
+              <p>
+                <span>Created: </span>
+                {displayDate(supplier.created_at)}
+              </p>
+              <hr />
+            </div>
+          );
+        })
+      ) : (
+        <p className="empty">Fetching Suppliers ...</p>
+      )}
     </div>
   );
 }

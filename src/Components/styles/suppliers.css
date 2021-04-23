@@ -1,0 +1,47 @@
+.suppliers {
+  width: 85%;
+  margin: 0 auto;
+  padding-top: 1em;
+}
+
+.fetchedSupplier {
+  border-top: 5px solid rgba(229, 155, 36, 0.8);
+  box-shadow: 0.5em 0.5em 1em rgba(0, 0, 0, 0.4),
+    0.5em 0.5em 1em rgba(0, 0, 0, 0.4);
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 1.5em;
+  padding: 10px 10px;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.fetchedSupplier p {
+  font-weight: 400;
+  font-size: 1.3em;
+}
+
+.fetchedSupplier span {
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.empty {
+  font-size: 1.2em;
+}
+
+/* Larger than mobile */
+@media only screen and (min-width: 768px) {
+  .suppliers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .fetchedSupplier {
+    width: 40%;
+  }
+}
