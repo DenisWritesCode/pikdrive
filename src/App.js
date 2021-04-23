@@ -5,6 +5,7 @@ import Orders from "./Components/Orders";
 import Products from "./Components/Products";
 import Suppliers from "./Components/Suppliers";
 import Cart from "./Components/Cart";
+import TopSales from "./Components/TopSales";
 
 function App() {
   const cart = [];
@@ -45,6 +46,9 @@ function App() {
             </Route>
             <Route path="/suppliers">
               <Suppliers displayDate={displayDate} />
+            </Route>
+            <Route path="/top-sales">
+              <TopSales displayDate={displayDate} />
             </Route>
             <Route path="/cart">
               <Cart displayDate={displayDate} cart={cart} />
