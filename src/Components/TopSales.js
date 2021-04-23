@@ -27,7 +27,7 @@ function TopSales({ displayDate }) {
 
   return (
     <>
-      <h1>Top-Sales</h1>
+      <h1 className="title">Top-Sales</h1>
       <div className="top-sales">
         {topSales.length > 0 ? (
           topSales.map((topSale) => {

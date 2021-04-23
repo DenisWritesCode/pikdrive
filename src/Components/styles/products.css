@@ -1,14 +1,15 @@
-.cart-parent {
+h1.title {
+  font-size: 3em;
+  text-align: center;
+  margin-bottom: 0.3em;
+}
+
+.products {
   display: flex;
   flex-direction: column;
 }
 
-.cart {
-  display: flex;
-  flex-direction: column;
-}
-
-.item {
+.product {
   border-top: 5px solid rgba(229, 155, 36, 0.8);
   box-shadow: 0.5em 0.5em 1em rgba(0, 0, 0, 0.4),
     0.5em 0.5em 1em rgba(0, 0, 0, 0.4);
@@ -16,25 +17,18 @@
   margin-bottom: 1.5em;
   padding: 10px 10px;
   position: relative;
+
+  display: flex;
+  flex-direction: column;
 }
 
-.item p {
-  font-weight: 400;
-  font-size: 1.2em;
-}
-
-.item span {
-  font-weight: 600;
-  font-size: 1.1em;
-}
-
-.checkout {
-  max-width: 50%;
+.orderButton {
+  max-width: 80%;
   position: relative;
   margin: 0 auto;
-
+  margin-top: 1em;
   background-color: #e59b24;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 600;
   letter-spacing: 1px;
   padding: 10px;
@@ -46,11 +40,26 @@
   cursor: pointer;
 }
 
-.empty p {
+.text p {
+  font-weight: 400;
   font-size: 1.2em;
 }
 
-.empty a {
+.text span {
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.empty {
+  font-size: 1.2em;
+}
+
+.plug {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.plug a {
   display: inline-block;
   text-decoration: none;
   font-size: 1.3em;
@@ -64,13 +73,13 @@
 
 /* Larger than mobile */
 @media only screen and (min-width: 768px) {
-  .cart {
+  .products {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
   }
 
-  .item {
+  .product {
     width: 40%;
   }
 }

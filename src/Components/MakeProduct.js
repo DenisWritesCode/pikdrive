@@ -1,5 +1,6 @@
-import React from "react";
 import Axios from "axios";
+
+import "./styles/makeProduct.css";
 
 // Click on order, adds to cart.
 function MakeProduct({ setProducts, fetchItems }) {
@@ -35,16 +36,24 @@ function MakeProduct({ setProducts, fetchItems }) {
 
   return (
     <div className="newProduct">
-      <form action="#" onSubmit={handleNewProduct}>
-        <label htmlFor="productName">Name: </label>
-        <input type="text" name="productName" id="productName" />
-
-        <label htmlFor="productDescription">Description: </label>
-        <input type="text" name="productDescription" id="productDescription" />
-
-        <label htmlFor="productQuantity">Quantity: </label>
-        <input type="number" name="productQuantity" id="productQuantity" />
-
+      <h1 className="title">Add New Product</h1>
+      <form action="#" onSubmit={handleNewProduct} className="form">
+        <label htmlFor="productName">
+          Name:
+          <input type="text" name="productName" id="productName" required />
+        </label>
+        <label htmlFor="productDescription">
+          Description:
+          <input
+            type="text"
+            name="productDescription"
+            id="productDescription"
+          />
+        </label>
+        <label htmlFor="productQuantity">
+          Quantity:
+          <input type="number" name="productQuantity" id="productQuantity" />
+        </label>
         <button type="submit">Create New Product</button>
       </form>
     </div>

@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Axios from "axios";
 import MakeProduct from "./MakeProduct";
 
+import "./styles/products.css";
+
 function Products({ cart, displayDate }) {
   const baseUrl =
     "https://cors.bridged.cc/https://codechallenge.pikdrive.com/api/"; // pesky CORS error.//"https://jsonplaceholder.typicode.com/users";
@@ -47,40 +49,56 @@ function Products({ cart, displayDate }) {
   };
 
   return (
-    <div className="products">
-      <div className="displayProducts">
-        <h1>Products</h1>
+    <>
+      <h1 className="title">Products</h1>
+      <div className="products">
         {products.length > 0 ? (
           products.map((product) => {
             return (
               <div key={product.id} className="product">
-                <p> Name: {product.name} </p>
-                <p> Description: {product.description} </p>
-                <p> Quantity: {product.quantity} </p>
-                <p> Created: {displayDate(product.created_at)} </p>
-                <button
-                  onClick={() => {
-                    handleOrder(product.id, product.name);
-                  }}
-                >
-                  Order {product.name}
-                </button>
-                <hr />
+                <section className=" text">
+                  <p>
+                    <span>Name: </span>
+                    {product.name}
+                  </p>
+                  <p>
+                    <span>Description: </span>
+                    {product.description}
+                  </p>
+                  <p>
+                    <span>Quantity: </span>
+                    {product.quantity}
+                  </p>
+                  <p>
+                    <span>Created: </span>
+                    {displayDate(product.created_at)}
+                  </p>
+                </section>
+                <section>
+                  <button
+                    className="orderButton"
+                    onClick={() => {
+                      handleOrder(product.id, product.name);
+                    }}
+                  >
+                    Add To Cart
+                  </button>
+                </section>
               </div>
             );
           })
         ) : (
-          <p>Fetching Products...</p>
+          <p className="empty">Fetching Products...</p>
         )}
-
-        <p>
-          Check out our <Link to="/top-sales">Top-Sales</Link>.
-        </p>
-
-        <hr />
-        <MakeProduct setProducts={setProducts} fetchItems={fetchItems} />
       </div>
-    </div>
+
+      <p className="plug">
+        Check out our <Link to="/top-sales">Top-Sales</Link>.
+      </p>
+
+      <hr />
+      <MakeProduct setProducts={setProducts} fetchItems={fetchItems} />
+    </>
   );
 }
 
