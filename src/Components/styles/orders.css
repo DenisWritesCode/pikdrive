@@ -26,12 +26,10 @@
 
 .order p {
   font-weight: 400;
-  font-size: 1.2em;
 }
 
 .order span {
   font-weight: 600;
-  font-size: 1.1em;
 }
 
 .delete {
@@ -40,7 +38,6 @@
   border-radius: 10px;
   margin-top: 0.3em;
   padding: 5px 10px;
-  font-size: 1.2em;
   letter-spacing: 2px;
   cursor: pointer;
 }
@@ -48,16 +45,6 @@
 .delete:active {
   color: var(--pDYellow);
   background-color: var(--deleteRed);
-}
-
-.cartAlert {
-  display: none;
-  position: fixed;
-  bottom: 2%;
-  right: 2%;
-  background-color: #fff;
-  padding: 10px;
-  border: 2px solid rgba(0, 0, 0, 0.5);
 }
 
 /* Larger than mobile */

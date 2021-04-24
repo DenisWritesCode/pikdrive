@@ -20,7 +20,6 @@
 
 .item p {
   font-weight: 400;
-  font-size: 1.2em;
 }
 
 .item span {
@@ -34,7 +33,7 @@
   margin: 0 auto;
 
   background-color: #e59b24;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 600;
   letter-spacing: 1px;
   padding: 10px;
@@ -47,7 +46,7 @@
 }
 
 .empty p {
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 
 .empty a {
