@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import { Route, Link, Switch } from "react-router-dom";
 
 import Orders from "./Components/Orders";
 import Products from "./Components/Products";

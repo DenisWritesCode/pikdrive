@@ -15,7 +15,6 @@ function Products({ cart, displayDate }) {
     Axios.get(baseUrl + displayItems)
       .then((res) => {
         const data = res.data.data; //Using 2 cause they return nested objects
-        console.log(res);
         setProducts(data);
       })
       .catch((error) => {
@@ -44,8 +43,15 @@ function Products({ cart, displayDate }) {
         quantity: 1,
       });
     }
+  };
 
-    console.table(cart);
+  const alertOrder = (itemName) => {
+    const cart = document.querySelector(".cartAlert");
+    cart.innerText = `Added ${itemName} to cart`;
+    cart.style.display = "block";
+    setTimeout(() => {
+      cart.style.display = "none";
+    }, 1500);
   };
 
   return (
@@ -79,6 +85,7 @@ function Products({ cart, displayDate }) {
                     className="orderButton"
                     onClick={() => {
                       handleOrder(product.id, product.name);
+                      alertOrder(product.name);
                     }}
                   >
                     Add To Cart
@@ -90,6 +97,7 @@ function Products({ cart, displayDate }) {
         ) : (
           <p className="empty">Fetching Products...</p>
         )}
+        <p className="cartAlert"></p>
       </div>
 
       <p className="plug">

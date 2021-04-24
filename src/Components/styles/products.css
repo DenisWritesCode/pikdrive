@@ -40,6 +40,11 @@ h1.title {
   cursor: pointer;
 }
 
+.orderButton:active {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: rgba(229, 155, 36, 0.8);
+}
+
 .text p {
   font-weight: 400;
   font-size: 1.2em;
