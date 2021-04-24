@@ -1,5 +1,24 @@
 # PikDrive Answer
 
-- A repo to store my response to a code challenge.
+[Live Site](https://deniswritescode.github.io/pikdrive/)
+
+- A repo to store my response to the code challenge.
 - **/product-supplier** - Returns a blank array.
-- When an order is made, it should decrement quantity.
+-     **new-supplier - Was not properly documented.
+
+## Install
+
+```bash
+# install dependencies
+$ yarn install
+
+# serve with hot reload at localhost:3000
+$ yarn start
+
+# build for production and launch server
+$ yarn build
+$ yarn start
+
+# Deploy to Github Pages
+$ yarn
+```
