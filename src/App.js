@@ -59,7 +59,10 @@ function App() {
       <footer>
         <p className="copyright">&copy; 2021</p>
         <p className="link">
-          Designed By <a href="denismutinda.com">DenisWritesCode</a>
+          Designed By{" "}
+          <a href="https://denismutinda.com" target="blank">
+            DenisWritesCode
+          </a>
         </p>
       </footer>
     </div>

@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Axios from "axios";
 
+import apiGet from "./api";
 import "./styles/topSales.css";
 
 function TopSales({ displayDate }) {
-  const baseUrl =
-    "https://cors.bridged.cc/https://codechallenge.pikdrive.com/api/";
-
   const [topSales, setTopSales] = useState([]);
 
   const fetchTopSales = () => {
-    Axios.get(baseUrl + "top-sales")
-      .then((res) => {
-        const data = res.data.data; //Using 2 cause they return nested objects
+    apiGet("top-sales")
+      .then((data) => {
         setTopSales(data);
       })
       .catch((error) => {

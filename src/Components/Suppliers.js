@@ -1,20 +1,14 @@
 import React, { useEffect, useState } from "react";
-import Axios from "axios";
 
+import apiGet from "./api";
 import "./styles/suppliers.css";
 
 function Suppliers() {
-  const baseUrl =
-    "https://cors.bridged.cc/https://codechallenge.pikdrive.com/api/"; // pesky CORS error.//"https://jsonplaceholder.typicode.com/users";
   const [suppliers, setSuppliers] = useState([]);
 
   useEffect(() => {
-    setSuppliers([]); // Loading effect.
-
-    Axios.get(baseUrl + "suppliers/")
-      .then((res) => {
-        const data = res.data.data; //Using 2 cause they return nested objects
-        console.log(res);
+    apiGet("suppliers/")
+      .then((data) => {
         setSuppliers(data);
       })
       .catch((error) => {
@@ -27,11 +21,9 @@ function Suppliers() {
     return createdDate.toDateString();
   };
 
-  const populated = suppliers.length; // Display loading
-
   return (
     <div className="suppliers">
-      {populated ? (
+      {suppliers.length > 0 ? (
         suppliers.map((supplier) => {
           return (
             <div className="fetchedSupplier" key={supplier.id}>

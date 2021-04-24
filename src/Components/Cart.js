@@ -1,13 +1,10 @@
-import Axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import { apiPost } from "./api";
 import "./styles/cart.css";
 
 function Cart({ cart, setCart }) {
-  const baseUrl =
-    "https://cors.bridged.cc/https://codechallenge.pikdrive.com/api/";
-
   const [checkoutCart, setCheckOutCart] = useState(cart);
   // Determine number of items in cart
   const sum = (acc, element) => {
@@ -18,11 +15,10 @@ function Cart({ cart, setCart }) {
 
   const handleCheckout = () => {
     alert(`Confirm ordering of ${totalItems} item(s) from your account`);
-    Axios.post(baseUrl + "new-order", {
+    apiPost("new-order", {
       items: cart, // Change this maybe
     })
       .then((res) => {
-        console.log(res);
         setCart([]);
         setCheckOutCart([]);
       })

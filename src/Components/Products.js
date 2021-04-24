@@ -1,30 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Axios from "axios";
 import MakeProduct from "./MakeProduct";
 
+import apiGet from "./api";
 import "./styles/products.css";
 
 function Products({ cart, displayDate }) {
-  const baseUrl =
-    "https://cors.bridged.cc/https://codechallenge.pikdrive.com/api/"; // pesky CORS error.//"https://jsonplaceholder.typicode.com/users";
   const [products, setProducts] = useState([]);
-  const displayItems = "products";
 
-  const fetchItems = (displayItems) => {
-    Axios.get(baseUrl + displayItems)
-      .then((res) => {
-        const data = res.data.data; //Using 2 cause they return nested objects
-        setProducts(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  const fetchProducts = () => {
+    apiGet("products").then((products) => {
+      setProducts(products);
+    });
   };
 
   useEffect(() => {
-    fetchItems(displayItems);
-  }, [displayItems]);
+    fetchProducts();
+  }, []);
 
   const handleOrder = (itemID, itemName) => {
     // TODO: Check whether item is already there.
@@ -46,8 +38,11 @@ function Products({ cart, displayDate }) {
   };
 
   const alertOrder = (itemName) => {
-    const cart = document.querySelector(".cartAlert");
+    const products = document.querySelector(".products");
+    const cart = document.createElement("p");
+    products.appendChild(cart);
     cart.innerText = `Added ${itemName} to cart`;
+    cart.classList.add("cartAlert");
     cart.style.display = "block";
     setTimeout(() => {
       cart.style.display = "none";
@@ -97,7 +92,6 @@ function Products({ cart, displayDate }) {
         ) : (
           <p className="empty">Fetching Products...</p>
         )}
-        <p className="cartAlert"></p>
       </div>
 
       <p className="plug">
@@ -105,7 +99,7 @@ function Products({ cart, displayDate }) {
       </p>
 
       <hr />
-      <MakeProduct setProducts={setProducts} fetchItems={fetchItems} />
+      <MakeProduct setProducts={setProducts} fetchProducts={fetchProducts} />
     </>
   );
 }

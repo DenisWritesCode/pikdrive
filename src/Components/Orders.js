@@ -1,36 +1,19 @@
 import React, { useEffect, useState } from "react";
-import Axios from "axios";
 import "./styles/orders.css";
 
+import apiGet, { apiPost } from "./api";
+
 function Orders() {
-  const baseUrl =
-    "https://cors.bridged.cc/https://codechallenge.pikdrive.com/api/"; // pesky CORS error.//"https://jsonplaceholder.typicode.com/users";
   const [orders, setOrders] = useState([]);
 
   const fetchOrders = () => {
-    Axios.get(baseUrl + "orders")
-      .then((res) => {
-        const data = res.data.data; //Using 2 cause they return nested objects
-        setOrders(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    apiGet("orders").then((orders) => {
+      setOrders(orders);
+    });
   };
 
-  useEffect(() => {
-    fetchOrders();
-  }, []);
-
-  const displayDate = (date) => {
-    const createdDate = new Date(date);
-    return createdDate.toDateString();
-  };
-
-  const handleOrderDelete = (itemID) => {
-    Axios.post(baseUrl + "delete-order", {
-      id: itemID,
-    })
+  const handleOrderDelete = (id) => {
+    apiPost("delete-order", { id })
       .then((res) => {
         setOrders([]);
         fetchOrders(); // Trigger a page refresh
@@ -40,13 +23,22 @@ function Orders() {
       });
   };
 
+  const displayDate = (date) => {
+    const createdDate = new Date(date);
+    return createdDate.toDateString();
+  };
+
+  useEffect(() => {
+    fetchOrders();
+  }, []);
+
   return (
     <div className="orders">
       {orders.length > 0 ? (
         orders.map((order) => {
           return (
             <div key={order.id} className="order">
-              <section class="text">
+              <section className="text">
                 <p>
                   <span>Order:</span> {order.orderNumber}
                 </p>

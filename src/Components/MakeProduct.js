@@ -1,12 +1,8 @@
-import Axios from "axios";
-
+import { apiPost } from "./api";
 import "./styles/makeProduct.css";
 
 // Click on order, adds to cart.
-function MakeProduct({ setProducts, fetchItems }) {
-  const baseUrl =
-    "https://cors.bridged.cc/https://codechallenge.pikdrive.com/api/";
-
+function MakeProduct({ setProducts, fetchProducts }) {
   const handleNewProduct = (e) => {
     e.preventDefault();
 
@@ -16,14 +12,14 @@ function MakeProduct({ setProducts, fetchItems }) {
 
     alert(`Confirm addition of product: ${productName.value}`);
 
-    Axios.post(baseUrl + "new-product", {
+    apiPost("new-product", {
       name: productName.value,
       description: productDescription.value,
       quantity: productQuantity.value,
     })
       .then((res) => {
         setProducts([]);
-        fetchItems("products");
+        fetchProducts("products");
         console.log(res);
       })
       .catch((error) => {
@@ -42,7 +38,13 @@ function MakeProduct({ setProducts, fetchItems }) {
       <form action="#" onSubmit={handleNewProduct} className="form">
         <label htmlFor="productName">
           Name:
-          <input type="text" name="productName" id="productName" required />
+          <input
+            type="text"
+            name="productName"
+            id="productName"
+            maxLength="45"
+            required
+          />
         </label>
         <label htmlFor="productDescription">
           Description:
@@ -50,6 +52,7 @@ function MakeProduct({ setProducts, fetchItems }) {
             type="text"
             name="productDescription"
             id="productDescription"
+            maxLength="45"
           />
         </label>
         <label htmlFor="productQuantity">
