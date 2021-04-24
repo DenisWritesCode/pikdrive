@@ -4,7 +4,7 @@
 
 - A repo to store my response to the code challenge.
 - **/product-supplier** - Returns a blank array.
--     **new-supplier - Was not properly documented.
+- **/new-supplier** - Was not properly documented.
 
 ## Install
 
@@ -20,5 +20,5 @@ $ yarn build
 $ yarn start
 
 # Deploy to Github Pages
-$ yarn
+$ yarn deploy
 ```
