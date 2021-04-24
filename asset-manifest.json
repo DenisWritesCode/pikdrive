@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/pikdrive/static/css/main.fcb298b0.chunk.css",
-    "main.js": "/pikdrive/static/js/main.f31a0e37.chunk.js",
-    "main.js.map": "/pikdrive/static/js/main.f31a0e37.chunk.js.map",
+    "main.css": "/pikdrive/static/css/main.50ed1083.chunk.css",
+    "main.js": "/pikdrive/static/js/main.1b2e557a.chunk.js",
+    "main.js.map": "/pikdrive/static/js/main.1b2e557a.chunk.js.map",
     "runtime-main.js": "/pikdrive/static/js/runtime-main.dbda33f5.js",
     "runtime-main.js.map": "/pikdrive/static/js/runtime-main.dbda33f5.js.map",
-    "static/js/2.01ef8754.chunk.js": "/pikdrive/static/js/2.01ef8754.chunk.js",
-    "static/js/2.01ef8754.chunk.js.map": "/pikdrive/static/js/2.01ef8754.chunk.js.map",
+    "static/js/2.194de55f.chunk.js": "/pikdrive/static/js/2.194de55f.chunk.js",
+    "static/js/2.194de55f.chunk.js.map": "/pikdrive/static/js/2.194de55f.chunk.js.map",
     "index.html": "/pikdrive/index.html",
-    "static/css/main.fcb298b0.chunk.css.map": "/pikdrive/static/css/main.fcb298b0.chunk.css.map",
-    "static/js/2.01ef8754.chunk.js.LICENSE.txt": "/pikdrive/static/js/2.01ef8754.chunk.js.LICENSE.txt"
+    "static/css/main.50ed1083.chunk.css.map": "/pikdrive/static/css/main.50ed1083.chunk.css.map",
+    "static/js/2.194de55f.chunk.js.LICENSE.txt": "/pikdrive/static/js/2.194de55f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.dbda33f5.js",
-    "static/js/2.01ef8754.chunk.js",
-    "static/css/main.fcb298b0.chunk.css",
-    "static/js/main.f31a0e37.chunk.js"
+    "static/js/2.194de55f.chunk.js",
+    "static/css/main.50ed1083.chunk.css",
+    "static/js/main.1b2e557a.chunk.js"
   ]
 }
