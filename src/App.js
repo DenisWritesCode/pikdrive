@@ -1,12 +1,12 @@
 import "./App.css";
 import { Route, Link, Switch } from "react-router-dom";
+import { useState } from "react";
 
 import Orders from "./Components/Orders";
 import Products from "./Components/Products";
 import Suppliers from "./Components/Suppliers";
 import Cart from "./Components/Cart";
 import TopSales from "./Components/TopSales";
-import { useState } from "react";
 
 function App() {
   const [cart, setCart] = useState([]);
