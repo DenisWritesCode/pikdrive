@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/pikdrive/static/css/main.65ebe58d.chunk.css",
-    "main.js": "/pikdrive/static/js/main.de63a815.chunk.js",
-    "main.js.map": "/pikdrive/static/js/main.de63a815.chunk.js.map",
+    "main.js": "/pikdrive/static/js/main.ec012d1a.chunk.js",
+    "main.js.map": "/pikdrive/static/js/main.ec012d1a.chunk.js.map",
     "runtime-main.js": "/pikdrive/static/js/runtime-main.dbda33f5.js",
     "runtime-main.js.map": "/pikdrive/static/js/runtime-main.dbda33f5.js.map",
     "static/js/2.194de55f.chunk.js": "/pikdrive/static/js/2.194de55f.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.dbda33f5.js",
     "static/js/2.194de55f.chunk.js",
     "static/css/main.65ebe58d.chunk.css",
-    "static/js/main.de63a815.chunk.js"
+    "static/js/main.ec012d1a.chunk.js"
   ]
 }
